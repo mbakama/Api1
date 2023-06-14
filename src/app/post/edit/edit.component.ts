@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditComponent {
   id!: number;
-  post!:Post;
+  posts!:Post;
   form!: FormGroup
 
 
@@ -21,8 +21,8 @@ export class EditComponent {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['postId'];
     this.service.find(this.id).subscribe((data:Post)=>{
-      this.post = data;
-      console.log(this.post)
+      this.posts = data;
+      console.log(this.posts)
     })
     this.form = new FormGroup({
       nom : new FormControl('', [Validators.required]),

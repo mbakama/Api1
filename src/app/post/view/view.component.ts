@@ -2,6 +2,7 @@
 import { Post } from '../post';
 import { PostService } from '../post.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-view',
@@ -11,20 +12,28 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ViewComponent implements OnInit {
 
   id! : number;
-  post!: Post;
+  post!: Post ;
+
 
   constructor(public service : PostService, private route:ActivatedRoute, private router:Router){}
 
-  ngOnInit(){
-    this.find()
+  ngOnInit():void{
+    this.id = this.route.snapshot.params['postId']; 
+    this.service.find(this.id).subscribe((data:Post)=>{
+      this.post = data;
+     
+      console.log(this.post)
+      alert(this.post)
+    });
     
   }
-  find(){
-    this.id = this.route.snapshot.params['postId'];
-
-    this.service.find(this.id).subscribe((data:Post)=>{
-      this.post = data
-      console.log(this.post)
-    })
-  }
+  // find(data:any){
+  //   this.data = this.route.snapshot.params['postId']; 
+  //   this.service.find(data).subscribe((response)=>{
+  //       this.data = response
+  //       console.log(this.data)
+  //   })
+  // }
+  
 }
+

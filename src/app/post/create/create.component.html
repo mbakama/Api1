@@ -18,7 +18,7 @@
         <div class="mb-3">
             <input type="text"
             formControlName="prenom"
-            id="prenom"
+            id="prenom" #prenom
             class="form-control"
             >
             <div *ngIf="f['prenom'].touched && f['prenom'].invalid" class="alert alert-danger mt-2">

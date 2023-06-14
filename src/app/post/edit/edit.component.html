@@ -6,7 +6,7 @@
             <input type="text"
             formControlName="nom"
             id="nom"
-            [(ngModel)]="post.nom"
+            [(ngModel)]="posts.nom"
             class="form-control"
             
             >
@@ -22,7 +22,7 @@
             formControlName="prenom"
             id="prenom"
             class="form-control"
-            [(ngModel)]="post.prenom"
+            [(ngModel)]="posts.prenom"
             >
             <div *ngIf="f['prenom'].touched && f['prenom'].invalid" class="alert alert-danger mt-2">
                 <div *ngIf="f['prenom'].errors && f['prenom'].errors['required']">

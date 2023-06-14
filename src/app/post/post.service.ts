@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PostService {
-  [x: string]: any;
+  
 
   private apiUrl = "http://127.0.0.1:8000/api/"
 
   httpOptions = {
-    headers: new HttpHeaders({
-      'content-Type':'application-json'
+    headers: new HttpHeaders({ 
+      'Content-Type': 'application/json; charset=utf-8'
     })
   }
 
@@ -27,7 +27,9 @@ export class PostService {
   }
 
   find(id:number):Observable<any>{
-     return this.http.get<Post>(this.apiUrl+'employee/'+id)
+     return this.http.get<Post[]>(this.apiUrl+'employee/'+id,this.httpOptions)
+     //(`$(this.apiUrl+'employee)/${id}`,this.httpOptions)
+     //(this.apiUrl+'employee/'+id)
   }
 
   update(id:number, post:Post):Observable<Post>{
