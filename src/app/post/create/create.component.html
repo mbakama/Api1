@@ -1,0 +1,33 @@
+<div class="container">
+    <h1 class="mt-5 text-center">Add a new employee</h1>
+    <hr>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="mb-3">
+            <input type="text"
+            formControlName="nom"
+            id="nom"
+            class="form-control"
+            >
+            <div *ngIf="f['nom'].touched && f['nom'].invalid" class="alert alert-danger mt-2">
+                <div *ngIf="f['nom'].errors && f['nom'].errors['required']">
+                    This field is required
+                </div>
+
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="text"
+            formControlName="prenom"
+            id="prenom"
+            class="form-control"
+            >
+            <div *ngIf="f['prenom'].touched && f['prenom'].invalid" class="alert alert-danger mt-2">
+                <div *ngIf="f['prenom'].errors && f['prenom'].errors['required']">
+                    This field is required
+                </div>
+
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!form.valid">Ajouter</button>
+    </form>
+</div>

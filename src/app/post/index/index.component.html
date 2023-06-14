@@ -1,0 +1,28 @@
+<div class="container">
+    <h1 class="mt-5 text-center">Data from Laravel API</h1>
+    <hr>
+    <a href="" [routerLink]="['/post/create']" class="btn btn-success">Ajouter un employé</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Action</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of posts; let i = index">
+                <td>{{ i+1 }}</td>
+                <td>{{ item.nom }}</td>
+                <td>{{ item.prenom }}</td>
+                <td>
+                    <a href="" [routerLink]="['/post/',item.id,'view']" class="btn btn-info" >View</a> &nbsp;
+                    <a href="" [routerLink]="['/post/',item.id,'edit']" class="btn btn-success" >Edit</a> &nbsp;
+                    <button type="submit" (click)="deleteData(item.id)" class="btn btn-danger" >Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
