@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class ViewComponent implements OnInit {
 
-  id! : number;
+  id : any;
   post!: Post ;
 
 
@@ -19,13 +19,14 @@ export class ViewComponent implements OnInit {
 
   ngOnInit():void{
     this.id = this.route.snapshot.params['postId']; 
-    this.service.find(this.id).subscribe((data:Post)=>{
-      this.post = data;
-     
-      console.log(this.post)
-      alert(this.post)
+    this.find()
+  }
+
+  find(){
+    this.service.find(this.id).subscribe((res:Post)=>{
+      this.post = res.data; 
+      
     });
-    
   }
   // find(data:any){
   //   this.data = this.route.snapshot.params['postId']; 

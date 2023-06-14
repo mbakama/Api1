@@ -33,7 +33,7 @@ export class PostService {
   }
 
   update(id:number, post:Post):Observable<Post>{
-    return this.http.put<Post>(this.apiUrl+'employee'+id, JSON.stringify(post), this.httpOptions)
+    return this.http.put<Post>(this.apiUrl+'employee/'+id, JSON.stringify(post), this.httpOptions)
   }
   delete(id:number){
     return this.http.delete<Post>(this.apiUrl+'employee/'+id)
