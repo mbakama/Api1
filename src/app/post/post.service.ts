@@ -27,9 +27,7 @@ export class PostService {
   }
 
   find(id:number):Observable<any>{
-     return this.http.get<Post[]>(this.apiUrl+'employee/'+id,this.httpOptions)
-     //(`$(this.apiUrl+'employee)/${id}`,this.httpOptions)
-     //(this.apiUrl+'employee/'+id)
+     return this.http.get<Post[]>(this.apiUrl+'employee/'+id,this.httpOptions) 
   }
 
   update(id:number, post:Post):Observable<Post>{

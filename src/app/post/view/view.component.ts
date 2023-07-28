@@ -13,6 +13,7 @@ export class ViewComponent implements OnInit {
 
   id : any;
   post!: Post ;
+  data: any;
 
 
   constructor(public service : PostService, private route:ActivatedRoute, private router:Router){}
@@ -23,14 +24,14 @@ export class ViewComponent implements OnInit {
   }
 
   find(){
-    this.service.find(this.id).subscribe((res:Post)=>{
+    this.service.find(this.id).subscribe(res=>{
       this.post = res.data; 
       
     });
   }
-  // find(data:any){
+  // find(){
   //   this.data = this.route.snapshot.params['postId']; 
-  //   this.service.find(data).subscribe((response)=>{
+  //   this.service.find(this.data).subscribe((response)=>{
   //       this.data = response
   //       console.log(this.data)
   //   })
