@@ -27,7 +27,7 @@ export class CreateComponent implements OnInit {
   }
   submit(){
     this.service.create(this.form.value).subscribe(res =>{
-      console.log('success')
+      // console.log('success')
       this.routes.navigateByUrl('post/index')
     })
   }

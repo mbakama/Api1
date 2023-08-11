@@ -7,13 +7,17 @@ import { ViewComponent } from './view/view.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TabsComponent } from './tabs/tabs.component';
+// import { TabsComponent } from './tabs/tabs.component'
 @NgModule({
   declarations: [
     IndexComponent,
     ViewComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    TabsComponent,
+    // TabsComponent
   ],
   imports: [
     CommonModule,

@@ -4,15 +4,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostModule } from './post/post.module';
+import { DataTablesModule } from 'angular-datatables'; 
+// import { TabsComponent } from './tabs/tabs.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // TabsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PostModule,
-    HttpClientModule
+    HttpClientModule,
+    DataTablesModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

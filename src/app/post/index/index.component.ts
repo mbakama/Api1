@@ -11,11 +11,19 @@ import { Observable } from 'rxjs';
 })
 export class IndexComponent implements OnInit {
   posts: Post[] = [];
-
+  tabs : string [] = ['accueil','blog','contact'];
+  activeTaxIndex : number = 0;
+  dtoptions : DataTables.Settings={};
   constructor(private serviceData: PostService) {}
 
   ngOnInit(): void {
     this.getAll();
+    this.dtoptions={
+      pagingType : 'full_numbers',
+    }
+  }
+  tabChange(tabIndex:number){
+    this.activeTaxIndex = tabIndex;
   }
   getAll() {
     this.serviceData.getAll().subscribe((res) => {
@@ -26,7 +34,8 @@ export class IndexComponent implements OnInit {
   deleteData(id: number) {
     this.serviceData.delete(id).subscribe((res) => {
       this.posts = this.posts.filter((item) => item.id !== id);
-      console.log('id supprimer avec success');
+      // console.log('id supprimer avec success');
+      alert('data deleted');
     });
   }
 }
